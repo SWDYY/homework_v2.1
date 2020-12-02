@@ -1,5 +1,7 @@
 package GUI;
 
+import language.language_convert;
+
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -116,7 +118,7 @@ public class panelForPersonalAccount extends JPanel {
                     cmp = cmp.getParent();
                 }
                 ((JFrame)cmp).dispose();
-                windowsToLogin win = new windowsToLogin();
+                windowsToLogin win = new windowsToLogin(language_convert.language_convertAll());
                 win.setVisible(true);
 				win.setBounds(400,250,400,300);
 				win.setResizable(false);

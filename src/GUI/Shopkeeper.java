@@ -44,7 +44,7 @@ public class Shopkeeper extends JFrame{
     /**
      * 店长类构造GUI
      */
-    public Shopkeeper(){
+    public Shopkeeper(windowsToLogin windowsToLogin){
 
         try {
             BeautyEyeLNFHelper.launchBeautyEyeLNF();
@@ -52,7 +52,7 @@ public class Shopkeeper extends JFrame{
             e.printStackTrace();
         }
 
-        menubar menu = new menubar();
+        menubar menu = new menubar(windowsToLogin);
         JPanel totalPanel=new JPanel();
         this.setJMenuBar(menu);
         tabbedPane_all = new JTabbedPane();

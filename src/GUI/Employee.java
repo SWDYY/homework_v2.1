@@ -20,8 +20,8 @@ public class Employee extends JFrame {
     private panelForCashiering panel_cashiering;
     private panelForOrderList panel_orderList;
     private panelForPersonalAccount panel_personalAccount;
-    public Employee(){
-        menubar menu = new menubar();
+    public Employee(windowsToLogin windowsToLogin){
+        menubar menu = new menubar(windowsToLogin);
         this.setJMenuBar(menu);
 
         JPanel totalPanel=new JPanel();

@@ -1,6 +1,12 @@
 package GUI;
 
+import language.language_convert;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class menubar extends JMenuBar {
     private JMenu menuFile;
@@ -17,7 +23,7 @@ public class menubar extends JMenuBar {
     private JRadioButtonMenuItem German;
 
 
-    public menubar(){
+    public menubar(windowsToLogin windowsToLogin){
         menuFile  = new JMenu("文件");
         menuSetting = new JMenu("设置");
         menuHelp = new JMenu("帮助");
@@ -42,7 +48,14 @@ public class menubar extends JMenuBar {
         menu_Language.add(Chinese);
         menu_Language.add(English);
         menu_Language.add(German);
+
         menuItem_Font = new JMenuItem("字体");
+        menuItem_Font.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ////////////////待添加监听
+            }
+        });
         menuSetting.add(menu_Language);
         menuSetting.addSeparator();
         menuSetting.add(menuItem_Font);

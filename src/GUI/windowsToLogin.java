@@ -17,22 +17,37 @@ import java.awt.Insets;
 import javax.swing.Box;
 import java.awt.Component;
 import java.awt.Font;
+import java.util.ResourceBundle;
 
 public class windowsToLogin extends JFrame{
+    /***/
+    private String user_login;//用户登录
+    private String user_name;//用户名
+    private String user_password;//密码
+    private String cancel;//取消
+    private String login;//登录
+    private String forgetPassword;//忘记密码？
     private JTextField textField_login_username;
     private JTextField textField_login_password;
     private windowsToLogin show = this;
 
-    public windowsToLogin() {
+    public windowsToLogin(ResourceBundle resourceBundle) {
+        user_login =resourceBundle.getString("user_login");
+        user_name =resourceBundle.getString("user_name");
+        user_password =resourceBundle.getString("user_password");
+        cancel =resourceBundle.getString("cancel");
+        login =resourceBundle.getString("login");
+        forgetPassword =resourceBundle.getString("forgetPassword");
+
         try {
             BeautyEyeLNFHelper.launchBeautyEyeLNF();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //title
-        setTitle("用户登录");
+        //title//用户登录
+        setTitle(user_login);
 
-        menubar menu = new menubar();
+        menubar menu = new menubar(this);
         this.setJMenuBar(menu);
         /*******登陆界面********/
         JPanel panel = new JPanel();
@@ -45,7 +60,7 @@ public class windowsToLogin extends JFrame{
         gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         panel.setLayout(gbl_panel);
                 
-        JLabel Label_login_username = new JLabel("用户名");
+        JLabel Label_login_username = new JLabel(user_name);
         Label_login_username.setFont(new Font("微软雅黑", Font.BOLD, 16));
         Label_login_username.setHorizontalAlignment(SwingConstants.CENTER);
         GridBagConstraints gbc_Label_login_username = new GridBagConstraints();
@@ -64,7 +79,7 @@ public class windowsToLogin extends JFrame{
         panel.add(textField_login_username, gbc_textField_login_username);
         textField_login_username.setColumns(10);
                 
-        JLabel Label_login_password = new JLabel("密 码");
+        JLabel Label_login_password = new JLabel(user_password);
         Label_login_password.setFont(new Font("微软雅黑", Font.BOLD, 16));
         Label_login_password.setHorizontalAlignment(SwingConstants.CENTER);
         GridBagConstraints gbc_Label_login_password = new GridBagConstraints();
@@ -84,7 +99,7 @@ public class windowsToLogin extends JFrame{
         textField_login_password.setColumns(10);
 
         /***********按钮及事件监听***********/
-        JButton Button_login_cancel = new JButton("取 消（Cancel）");
+        JButton Button_login_cancel = new JButton(cancel);
         Button_login_cancel.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -92,27 +107,27 @@ public class windowsToLogin extends JFrame{
                     }
         });
 
-        JButton Button_login_login = new JButton("登录（Log in）");
+        JButton Button_login_login = new JButton(login);
         Button_login_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 /*****测试代码*****/
                 if(textField_login_username.getText().equals("1")) {
-                    Employee employee = new Employee();
+                    Employee employee = new Employee(show);
                     employee.setVisible(true);
                     employee.setBounds(450,150,500,550);
 //                    employee.setResizable(false);
                     show.dispose();
                 }
                 else if (textField_login_username.getText().equals("2")){
-                    Shopkeeper shopkeeper = new Shopkeeper();
+                    Shopkeeper shopkeeper = new Shopkeeper(show);
                     shopkeeper.setVisible(true);
                     shopkeeper.setBounds(450,150,550,550);
                     //shopkeeper.setResizable(false);
                     show.dispose();
                 }
                 else if(textField_login_username.getText().equals("3")){
-                    Manager manager = new Manager();
+                    Manager manager = new Manager(show);
                     manager.setVisible(true);
                     manager.setBounds(450,150,550,550);
                     show.dispose();
@@ -142,7 +157,7 @@ public class windowsToLogin extends JFrame{
         Component horizontalGlue = Box.createHorizontalGlue();
         horizontalBox.add(horizontalGlue);
                         
-        JButton Button_login_forgetPassword = new JButton("忘记密码？");
+        JButton Button_login_forgetPassword = new JButton(forgetPassword);
         Button_login_forgetPassword.setFont(new Font("宋体", Font.BOLD | Font.ITALIC, 12));
         Button_login_forgetPassword.setHorizontalAlignment(SwingConstants.RIGHT);
         horizontalBox.add(Button_login_forgetPassword);

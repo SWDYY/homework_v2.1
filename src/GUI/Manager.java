@@ -24,9 +24,9 @@ public class Manager extends JFrame {
     private panelForAccount panel_account;
     private panelForPersonalAccount panel_personalAccount;
 
-    public Manager(){
+    public Manager(windowsToLogin windowsToLogin){
         JPanel totalPanel =new JPanel();
-        menubar menu = new menubar();
+        menubar menu = new menubar(windowsToLogin);
         this.setJMenuBar(menu);
 
         tabbedPane_all = new JTabbedPane();
