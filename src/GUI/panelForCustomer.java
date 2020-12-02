@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class panelForCustomer extends JPanel {
+
     private Box box_top;
     private JTextField textField;
     private MyJPanel myPanel;

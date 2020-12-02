@@ -4,6 +4,7 @@ import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 import java.util.Vector;
 
 /**
@@ -44,7 +45,7 @@ public class Shopkeeper extends JFrame{
     /**
      * 店长类构造GUI
      */
-    public Shopkeeper(windowsToLogin windowsToLogin){
+    public Shopkeeper(ResourceBundle resourceBundle){
 
         try {
             BeautyEyeLNFHelper.launchBeautyEyeLNF();
@@ -52,7 +53,7 @@ public class Shopkeeper extends JFrame{
             e.printStackTrace();
         }
 
-        menubar menu = new menubar(windowsToLogin);
+        menubar menu = new menubar(resourceBundle);
         JPanel totalPanel=new JPanel();
         this.setJMenuBar(menu);
         tabbedPane_all = new JTabbedPane();

@@ -18,6 +18,6 @@ public class language_convert {
     private static ResourceBundle myResourcesDeu = ResourceBundle.getBundle(basename_Deutsch,Deu);
 
     public static ResourceBundle language_convertAll(){
-        return myResourcesDeu;
+        return myResourcesCN;
     }
 }

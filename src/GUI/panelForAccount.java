@@ -9,6 +9,14 @@ import java.util.Vector;
  * 本页面为”账户“页面
  */
 public class panelForAccount extends JPanel {
+    //language
+    private String label_account_searchTitleString;//员工名字/ID
+    private String button_account_searchString;//搜   索
+    private String button_account_changeString;//修   改
+    private String changeEmployeeAccount;//修改员工账户
+    private String button_account_deleteString;//删   除
+    private String button_account_addString;//+ 新增员工账户
+
     private JLabel label_account_searchTitle;
     private JTextField textField_account_searchDiaplay;
     private JButton button_account_search;
@@ -23,11 +31,12 @@ public class panelForAccount extends JPanel {
      * @param shopkeeper
      */
     public panelForAccount(Shopkeeper shopkeeper){
+
         /*********初始化所有组件************/
         Box horizontalBox = Box.createHorizontalBox();
-        label_account_searchTitle = new JLabel("员工名字/ID");
+        label_account_searchTitle = new JLabel(label_account_searchTitleString);
         textField_account_searchDiaplay = new JTextField();
-        button_account_search = new JButton("搜   索");
+        button_account_search = new JButton(button_account_searchString);
         button_account_search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,9 +67,9 @@ public class panelForAccount extends JPanel {
         Box verticalBox = Box.createVerticalBox();
         Box horizontalBox_up = Box.createHorizontalBox();
         Box horizontalBox_down = Box.createHorizontalBox();
-        label_account_searchTitle = new JLabel("员工名字/ID");
+        label_account_searchTitle = new JLabel(label_account_searchTitleString);
         textField_account_searchDiaplay = new JTextField();
-        button_account_search = new JButton("搜   索");
+        button_account_search = new JButton(button_account_searchString);
         button_account_search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +77,7 @@ public class panelForAccount extends JPanel {
             }
         });
 
-        button_account_change = new JButton(("修   改"));
+        button_account_change = new JButton((button_account_changeString));
         button_account_change.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,11 +85,11 @@ public class panelForAccount extends JPanel {
                 winForAddEmployeeAccount.setVisible(true);
                 winForAddEmployeeAccount.setBounds(470,170,450,300);
                 winForAddEmployeeAccount.setResizable(false);
-                winForAddEmployeeAccount.setTitle("修改员工账户");
+                winForAddEmployeeAccount.setTitle(changeEmployeeAccount);
             }
         });
 
-        button_account_delete = new JButton("删   除");
+        button_account_delete = new JButton(button_account_deleteString);
         button_account_delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,7 +97,7 @@ public class panelForAccount extends JPanel {
             }
         });
 
-        button_account_add = new JButton("+ 新增员工账户");
+        button_account_add = new JButton(button_account_addString);
         button_account_add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

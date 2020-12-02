@@ -1,18 +1,26 @@
 package GUI;
 
-import language.language_convert;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class menubar extends JMenuBar {
+    private String MenuFileStirng;//文件
+    private String menuSettingStirng;//设置
+    private String menuHelpStirng;//帮助
+    private String menuItem_QuitString;//退出
+    private String ChineseSring;//简体中文
+    private String EnglishSring;//英语
+    private String DeutschSring;//德语
+    private String menu_LanguageSring;//选择语言
+    private String menuItem_FontSring;//字体
+    private String menuItem_helpSring;//帮助
+    private String menuItem_aboutSring;//关于
+
     private JMenu menuFile;
     private JMenu menuSetting;
     private JMenu menuHelp;
-
     private JMenuItem menuItem_Quit;
     private JMenu menu_Language;
     private JMenuItem menuItem_Font;
@@ -23,33 +31,46 @@ public class menubar extends JMenuBar {
     private JRadioButtonMenuItem German;
 
 
-    public menubar(windowsToLogin windowsToLogin){
-        menuFile  = new JMenu("文件");
-        menuSetting = new JMenu("设置");
-        menuHelp = new JMenu("帮助");
+    public menubar(ResourceBundle resourceBundle) {
+        MenuFileStirng=resourceBundle.getString("MenuFileStirng");
+        menuSettingStirng=resourceBundle.getString("menuSettingStirng");
+        menuHelpStirng=resourceBundle.getString("menuHelpStirng");
+        menuItem_QuitString=resourceBundle.getString("menuItem_QuitString");
+        ChineseSring=resourceBundle.getString("ChineseSring");
+        EnglishSring=resourceBundle.getString("EnglishSring");
+        DeutschSring=resourceBundle.getString("DeutschSring");
+        menu_LanguageSring=resourceBundle.getString("menu_LanguageSring");
+        menuItem_FontSring=resourceBundle.getString("menuItem_FontSring");
+        menuItem_helpSring=resourceBundle.getString("menuItem_helpSring");
+        menuItem_aboutSring=resourceBundle.getString("menuItem_aboutSring");
+
+
+        menuFile = new JMenu(MenuFileStirng);
+        menuSetting = new JMenu(menuSettingStirng);
+        menuHelp = new JMenu(menuHelpStirng);
         add(menuFile);
         add(menuSetting);
         add(menuHelp);
 
-        menuItem_Quit = new JMenuItem("退出");
+        menuItem_Quit = new JMenuItem(menuItem_QuitString);
         menuFile.add(menuItem_Quit);
 
-        Chinese = new JRadioButtonMenuItem("简体中文");
+        Chinese = new JRadioButtonMenuItem(ChineseSring);
         Chinese.setSelected(true);
-        English = new JRadioButtonMenuItem("English");
-        German = new JRadioButtonMenuItem("Deutsch");
+        English = new JRadioButtonMenuItem(EnglishSring);
+        German = new JRadioButtonMenuItem(DeutschSring);
 
         ButtonGroup group = new ButtonGroup();
         group.add(Chinese);
         group.add(English);
         group.add(German);
 
-        menu_Language = new JMenu("选择语言");
+        menu_Language = new JMenu(menu_LanguageSring);
         menu_Language.add(Chinese);
         menu_Language.add(English);
         menu_Language.add(German);
 
-        menuItem_Font = new JMenuItem("字体");
+        menuItem_Font = new JMenuItem(menuItem_FontSring);
         menuItem_Font.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,8 +81,8 @@ public class menubar extends JMenuBar {
         menuSetting.addSeparator();
         menuSetting.add(menuItem_Font);
 
-        menuItem_help = new JMenuItem("帮助");
-        menuItem_about = new JMenuItem("About ..");
+        menuItem_help = new JMenuItem(menuItem_helpSring);
+        menuItem_about = new JMenuItem(menuItem_aboutSring);
         menuHelp.add(menuItem_help);
         menuHelp.addSeparator();
         menuHelp.add(menuItem_about);

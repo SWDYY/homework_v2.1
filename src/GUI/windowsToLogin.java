@@ -27,6 +27,8 @@ public class windowsToLogin extends JFrame{
     private String cancel;//取消
     private String login;//登录
     private String forgetPassword;//忘记密码？
+
+
     private JTextField textField_login_username;
     private JTextField textField_login_password;
     private windowsToLogin show = this;
@@ -47,7 +49,7 @@ public class windowsToLogin extends JFrame{
         //title//用户登录
         setTitle(user_login);
 
-        menubar menu = new menubar(this);
+        menubar menu = new menubar(resourceBundle);
         this.setJMenuBar(menu);
         /*******登陆界面********/
         JPanel panel = new JPanel();
@@ -113,21 +115,21 @@ public class windowsToLogin extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 /*****测试代码*****/
                 if(textField_login_username.getText().equals("1")) {
-                    Employee employee = new Employee(show);
+                    Employee employee = new Employee(resourceBundle);
                     employee.setVisible(true);
                     employee.setBounds(450,150,500,550);
 //                    employee.setResizable(false);
                     show.dispose();
                 }
                 else if (textField_login_username.getText().equals("2")){
-                    Shopkeeper shopkeeper = new Shopkeeper(show);
+                    Shopkeeper shopkeeper = new Shopkeeper(resourceBundle);
                     shopkeeper.setVisible(true);
                     shopkeeper.setBounds(450,150,550,550);
                     //shopkeeper.setResizable(false);
                     show.dispose();
                 }
                 else if(textField_login_username.getText().equals("3")){
-                    Manager manager = new Manager(show);
+                    Manager manager = new Manager(resourceBundle);
                     manager.setVisible(true);
                     manager.setBounds(450,150,550,550);
                     show.dispose();

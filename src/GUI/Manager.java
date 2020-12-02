@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 import java.util.Vector;
 
 /**
@@ -24,9 +25,9 @@ public class Manager extends JFrame {
     private panelForAccount panel_account;
     private panelForPersonalAccount panel_personalAccount;
 
-    public Manager(windowsToLogin windowsToLogin){
+    public Manager(ResourceBundle resourceBundle){
         JPanel totalPanel =new JPanel();
-        menubar menu = new menubar(windowsToLogin);
+        menubar menu = new menubar(resourceBundle);
         this.setJMenuBar(menu);
 
         tabbedPane_all = new JTabbedPane();
